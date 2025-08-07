@@ -1,0 +1,234 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: skyblue;
+  overflow: hidden;
+}
+
+.gameContainer {
+background-image: url('bg1.png');
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+
+}
+.dino{
+  background-image: url('dino.png');
+  background-repeat: no-repeat;
+  width: 400px; 
+  height: 200px; 
+  background-size: cover; 
+  background-position: center;
+  position: absolute;
+  bottom: 0;
+  left: 52px;
+
+}
+.Obstacle {
+  background-image: url('villen.png');
+ 
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 164px;
+  height: 113px;
+  position: absolute;
+  bottom: 0;
+  left: 60vw; 
+}
+
+.animateDino{
+  animation: dino 0.5s linear ;
+
+}
+
+@keyframes dino{
+  0% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 422px; 
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+.ObstacleAni{
+  animation: ObstacleAni 5s linear infinite;
+  
+}
+/* game over screen  */
+.gameOver {
+  position: absolute;
+  top: 50px;
+  
+  transform: translateX(-50%) scale(0.8);
+  font-size: 48px;
+  color: rgb(210, 23, 23);
+  visibility: hidden;
+  opacity: 0;
+  z-index: 10;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.gameOver.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+  animation: popIn 0.6s ease forwards;
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.5);
+  }
+  60% {
+    transform: translateX(-50%) scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+
+@keyframes ObstacleAni{
+  0% {
+    left: 100vw; 
+  }
+  100% {
+    left: -10vw;
+
+  }
+}
+
+
+#scoreCount {
+  font-size: 28px;
+  margin-top: 20px;
+  color: #fff;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#scoreCount.showScore {
+  opacity: 1;
+  transform: scale(1);
+  animation: scorePop 0.8s ease;
+  color: #4e0eb6;
+}
+
+.playAgain {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 18px;
+  color: white;
+  background-color: #ff4444;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.playAgain.show {
+  visibility: visible;
+  opacity: 1;
+  animation: popIn 0.6s ease forwards;
+}
+.endScreen {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  gap: 15px;
+  text-align: center;
+}
+
+.gameOver {
+  font-size: 48px;
+  color: rgb(210, 23, 23);
+  font-weight: bold;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.gameOver.show {
+  opacity: 1;
+  transform: scale(1);
+  animation: popIn 0.6s ease forwards;
+}
+
+#scoreCount {
+  font-size: 28px;
+  color: #4e0eb6;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#scoreCount.showScore {
+  opacity: 1;
+  transform: scale(1);
+  animation: scorePop 0.6s ease;
+}
+
+.playAgain {
+  padding: 12px 24px;
+  font-size: 18px;
+  color: white;
+  background-color: #ff4444;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.playAgain.show {
+  opacity: 1;
+  transform: scale(1);
+  animation: popIn 0.6s ease forwards;
+}
+
+/* Animations */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  60% {
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scorePop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
